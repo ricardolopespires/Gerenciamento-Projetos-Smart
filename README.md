@@ -8,7 +8,7 @@
   <img alt="GitHub Closed Pull Requests" src="https://img.shields.io/github/issues-pr-closed/ricardolopespires/ricardolopespires" />
   <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/ricardolopespires/ricardolopespires" />
   <img alt="PyPI - Django Version" src="https://img.shields.io/pypi/djversions/djangorestframework"> 
-  <img align="right"  width= 250 src="https://github.com/ricardolopespires/ricardolopespires/blob/master/banner-github.png"/>
+  <img align="right"  width= 500 src="https://github.com/ricardolopespires/Gerenciamento-Projetos-Smart/blob/main/main.jpg"/>
   
 </p>
 
