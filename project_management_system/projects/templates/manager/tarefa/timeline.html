@@ -1,0 +1,99 @@
+{% extends 'manager/base.html' %}
+{% load format_duration %}
+{% load static %}
+
+
+
+
+{% block dashboad %}
+{{ block.super }}
+
+
+
+
+
+<link rel="stylesheet" href="{% static 'css/timeline.css' %}">
+<div class="section-header ">
+    <div class="slider-outer">
+      <div class="slider-inner">
+          <div class="  projects fron active" data-slider="1">
+              <div class="projects-title">Tarefas<i class="fas fa-calendar-alt"></i></div>
+              <h2 class="title-projects-h2">Time line</h2>               
+          </div>
+      </div>
+  </div>
+</div>
+<div class="col-12 col-md-12 col-sm-12"> 
+    <section class="section">
+       
+        <div class="section-body">   
+            <h2 class="section-title section-title-modificado ">Gerenciamento</h2>
+            <p class="section-lead">O relatório  Analytics é uma ferramenta de análise para monitorar com eficiência sua atuação online e traçar estratégias consistentes para o seu negócio.</p>      
+            <div class="row">
+                <div class="col-12 col-md-12 col-sm-12"> 
+                    <div class="timeline-banner">
+                        <h1 class="timeline-Title">Projeto: <span>{{ projeto.nome }}</span></h1>
+                       {% if tarefas.count <= 6 %}
+                        <ul class="timeline-events">                            
+                            {% if request.user %}                            
+                            {% if tarefas %}
+                            {% for tarefa in tarefas %}
+                            <li class="timeline-event-years-2">
+                                <h2>{{tarefa.horario_de_inicio_atual |date:'d/m/Y'}}-{{ tarefa.data_conclusao |date:'d/m/Y'}}</h2>
+                                <h3>{{ tarefa.titulo }}</h3>
+                                <h4>{{ tarefa.projeto }}</h4>
+                            </li>
+                            {% endfor %}
+                            {% endif %}
+                            {% endif %}                                                   
+                        </ul>
+                        {% else %}
+                        <ul style="margin-top: 170px;" class="timeline-events">                            
+                            {% if request.user %}                            
+                            {% if tarefas %}
+                            {% for tarefa in tarefas %}
+                            <li class="timeline-event-years-2">
+                                <h2>{{tarefa.horario_de_inicio_atual |date:'d/m/Y'}}-{{ tarefa.data_conclusao |date:'d/m/Y'}}</h2>
+                                <h3>{{ tarefa.titulo }}</h3>
+                                <h4>{{ tarefa.projeto }}</h4>
+                            </li>
+                            {% endfor %}
+                            {% endif %}
+                            {% endif %}                                                   
+                        </ul>
+                        {% endif %}
+                        <ul class="timelines-years">
+                            <li>Janeiro</li>
+                            <li>Fevereiro</li>
+                            <li>Março</li>
+                            <li>Abril</li>
+                            <li>Junho</li>
+                            <li>Julho</li>
+                            <li>Agosto</li>
+                            <li>Setembro</li>
+                            <li>Outubro</li>
+                            <li>Novembro</li>
+                            <li>Dezembro</li>
+                        </ul>
+                    </div>                    
+                </div>
+            </div>       
+        </div>
+    </section>
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

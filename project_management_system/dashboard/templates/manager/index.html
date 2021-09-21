@@ -1,0 +1,177 @@
+{% extends 'manager/base.html' %}
+{% load static %}
+
+
+
+
+
+{% block dashboad %}
+    
+        <section class="section">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="card card-statistic-2">
+                <div class="card-stats">
+                  <div class="card-stats-title">Gerenciamento de Projetos
+                    <div class="dropdown d-inline">
+                      <a class="font-weight-600 dropdown-toggle" data-toggle="dropdown" href="#" id="orders-month">Agosto</a>
+                      <ul class="dropdown-menu dropdown-menu-sm">
+                        <li class="dropdown-title">Select Month</li>
+                        <li><a href="#" class="dropdown-item">January</a></li>
+                        <li><a href="#" class="dropdown-item">February</a></li>
+                        <li><a href="#" class="dropdown-item">March</a></li>
+                        <li><a href="#" class="dropdown-item">April</a></li>
+                        <li><a href="#" class="dropdown-item">May</a></li>
+                        <li><a href="#" class="dropdown-item">June</a></li>
+                        <li><a href="#" class="dropdown-item">July</a></li>
+                        <li><a href="#" class="dropdown-item active">August</a></li>
+                        <li><a href="#" class="dropdown-item">September</a></li>
+                        <li><a href="#" class="dropdown-item">October</a></li>
+                        <li><a href="#" class="dropdown-item">November</a></li>
+                        <li><a href="#" class="dropdown-item">December</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-stats-items">
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">{{ elaboracao }}</div>
+                      <div class="card-stats-item-label">Elaboração</div>
+                    </div>
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">{{ execucao }}</div>
+                      <div class="card-stats-item-label">Execução</div>
+                    </div>
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">{{ concluido }}</div>
+                      <div class="card-stats-item-label">Concluido</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-icon shadow-primary ">
+                  <i class="fas fa-archive"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Total</h4>
+                  </div>
+                  <div class="card-body">
+                    {{ projects.count }}
+                  </div>
+                </div>
+              </div>
+            </div> 
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="card card-statistic-2">
+                <div class="card-stats">
+                  <div class="card-stats-title">Gerenciamento de Tarefas</div>
+                  <div class="card-stats-items">
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">{{ TEL }}</div>
+                      <div class="card-stats-item-label">Elaboração</div>
+                    </div>
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">{{ TEX }}</div>
+                      <div class="card-stats-item-label">Execução</div>
+                    </div>
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">{{ TC }}</div>
+                      <div class="card-stats-item-label">Concluido</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-icon shadow-primary ">
+                  <i class="fas fa-file-signature"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Total</h4>
+                  </div>
+                  <div class="card-body">
+                    {{ tarefa.count }}
+                  </div>
+                </div>
+              </div>
+            </div>  
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="card card-statistic-2">
+                <div class="card-stats">
+                  <div class="card-stats-title">Gerenciamento de Colaboradores </div>
+                  <div class="card-stats-items">
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">0</div>
+                      <div class="card-stats-item-label">Elaboração</div>
+                    </div>
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">0</div>
+                      <div class="card-stats-item-label">Execução</div>
+                    </div>
+                    <div class="card-stats-item">
+                      <div class="card-stats-item-count">0</div>
+                      <div class="card-stats-item-label">Concluido</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-icon shadow-primary ">
+                  <i class="fas fa-people-arrows"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Total</h4>
+                  </div>
+                  <div class="card-body">
+                    0
+                  </div>
+                </div>
+              </div>
+            </div>            
+          </div>         
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Projetos</h4>
+                  <div class="card-header-action">
+                    <a href="{% url 'projects_manager' %}" class="btn btn-danger">Ver todos <i class="fas fa-chevron-right"></i></a>
+                  </div>
+                </div>
+                <div class="card-body p-0">
+                  <div class="table-responsive table-invoice">
+                    <table class="table table-striped">
+                      <tr>
+                        <th>Invoice ID</th>
+                        <th>Nome</th>
+                        <th>Status</th>
+                        <th>Data de Criação</th>
+                        <th>Informações</th>
+                      </tr>
+                      {% if projects %}
+                      {% for project in projects %}
+                      <tr>
+                        <td><a href="#">{{ project.id }}</a></td>
+                        <td class="font-weight-600">{{ project.nome }}</td>
+                        {% if project.status == 'elaboração' %}
+                        <td><div class="badge badge-secondary">{{ project.status }}</div></td>
+                        {% elif project.status == 'execução' %}
+                        <td><div class="badge badge-warning">{{ project.status }}</div></td>
+                         {% elif project.status == 'execução' %}
+                        <td><div class="badge badge-warning">{{ project.status }}</div></td>
+                        {% else %}
+                        <td><div class="badge badge-success">{{ project.status }}</div></td>
+                        {% endif %}
+                        <td>{{ project.created }}</td>
+                        <td>
+                          <a href="{% url 'tarefas' project.id  %}" class="btn btn-outline-primary">Detail</a>
+                        </td>
+                      </tr> 
+                      {% endfor %}                 
+                      {% endif %}
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>          
+          </div>
+        </section>
+      </div>
+
+{% endblock %}
