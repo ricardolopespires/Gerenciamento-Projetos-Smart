@@ -4,7 +4,8 @@
 
 <p align = 'left'>
   <img alt="PyPI - Python Version" src="https://img.shields.io/pypi/pyversions/Django">  
-  <img alt="" src="https://img.shields.io/github/repo-size/ricardolopespires/ricardolopespires" />    
+  <img alt="" src="https://img.shields.io/github/repo-size/ricardolopespires/ricardolopespires" /> 
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/ricardolopespires/Gerenciamento-Projetos-Smart">
   <img alt="GitHub Closed Pull Requests" src="https://img.shields.io/github/issues-pr-closed/ricardolopespires/ricardolopespires" />
   <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/ricardolopespires/ricardolopespires" />
   <img alt="PyPI - Django Version" src="https://img.shields.io/pypi/djversions/djangorestframework"> 
